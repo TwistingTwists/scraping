@@ -26,7 +26,7 @@ def buildForumQuiz():
 
 def getQuizLinks(pre_page):
     # get main page content
-    html_content = requests.get(urlPre).text
+    html_content = requests.get(pre_page).text
     soup = BeautifulSoup(html_content, "lxml")
 
     # find all links and extract APril Links from them
@@ -48,6 +48,19 @@ def buildInsightsQuiz():
         func(url, "build/html/insightspage.html")
 
 #################################################################################################################
+
+
+##################################
+def affairsCloud_Static():
+    urlPreCurrent = "https://affairscloud.com/current-affairs-quiz-questions-and-answers/"
+    allLinks = getQuizLinks(urlPreCurrent)
+    # april current affairs quiz
+    URLS2020 = [link['href']
+                for link in allLinks if "2020-weekly" in link['href']]
+
+    for url in URLS2020:
+        # append to insightspage.html
+        func(url, "build/html/affairsCloud.html")
 
 
 def func(url, pageFileName):
@@ -82,6 +95,7 @@ def build():
     import os
     os.system("cat build/html/pre.html > build/html/index.html")
     os.system("cat build/html/*page.html >> build/html/index.html")
+
     os.system("cat build/html/pos.html >> build/html/index.html")
 
     # make it ready to deploy on netlify
@@ -89,6 +103,5 @@ def build():
 
 
 #################################################################################################################
-
 if __name__ == "__main__":
     build()
