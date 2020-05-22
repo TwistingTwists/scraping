@@ -42,8 +42,9 @@ def buildInsightsQuiz():
     allLinks = getQuizLinks(urlPreStatic)
     # april current affairs quiz
     AprilURLS = [link['href']
-                 for link in allLinks if "april-2020-history" in link['href']]
+                 for link in allLinks if "april-2020-art" in link['href']]
     # print(list(set(AprilURLS)))
+    
     for url in list(set(AprilURLS)):
         # append to insightspage.html
         # print(url)
