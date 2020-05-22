@@ -38,13 +38,15 @@ def buildInsightsQuiz():
     urlPreCurrent = "https://www.insightsonindia.com/insights-current-affairs-questions/"
     urlPreStatic = "https://www.insightsonindia.com/insightsias-static-quizzes/"
 
-    allLinks = getQuizLinks(urlPreCurrent)
+    # allLinks = getQuizLinks(urlPreCurrent)
+    allLinks = getQuizLinks(urlPreStatic)
     # april current affairs quiz
     AprilURLS = [link['href']
-                 for link in allLinks if "april-2020" in link['href']]
-
-    for url in AprilURLS:
+                 for link in allLinks if "april-2020-history" in link['href']]
+    # print(list(set(AprilURLS)))
+    for url in list(set(AprilURLS)):
         # append to insightspage.html
+        # print(url)
         func(url, "build/html/insightspage.html")
 
 #################################################################################################################
@@ -88,9 +90,9 @@ def func(url, pageFileName):
 def build():
     buildInsightsQuiz()
     print("done for Insights Quiz. ")
-    buildForumQuiz()
-    print("done for Forum Quiz. \n ")
-    print("Making single bulid file for Insights and ForumIAS")
+    # buildForumQuiz()
+    # print("done for Forum Quiz. \n ")
+    # print("Making single bulid file for Insights and ForumIAS")
 
     import os
     os.system("cat build/html/pre.html > build/html/index.html")
