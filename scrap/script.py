@@ -91,7 +91,7 @@ def func(url, pageFileName):
 def build():
     # buildInsightsQuiz()
     print("done for Insights Quiz. ")
-    buildForumQuiz()
+    # buildForumQuiz()
     # print("done for Forum Quiz. \n ")
     # print("Making single bulid file for Insights and ForumIAS")
 
@@ -99,6 +99,7 @@ def build():
     os.system("cat build/html/pre.html > build/html/index.html")
     # os.system("cat build/html/*page.html >> build/html/index.html")
     os.system("cat build/html/insightspage.html >> build/html/index.html")
+    os.system("cat build/html/Forumpage.html >> build/html/index.html")
 
     os.system("cat build/html/pos.html >> build/html/index.html")
 
