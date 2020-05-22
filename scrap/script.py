@@ -10,7 +10,7 @@ def buildForumQuiz():
     urlPre = "https://blog.forumias.com/10-pm-current-affairs-quiz"
 
     from datetime import date, timedelta
-    pastXDays = 60
+    pastXDays = 15
     delta = timedelta(days=1)
     start_date = date.today()
     while pastXDays > 0:
@@ -44,7 +44,7 @@ def buildInsightsQuiz():
     AprilURLS = [link['href']
                  for link in allLinks if "april-2020-art" in link['href']]
     # print(list(set(AprilURLS)))
-    
+
     for url in list(set(AprilURLS)):
         # append to insightspage.html
         # print(url)
@@ -89,9 +89,9 @@ def func(url, pageFileName):
 
 
 def build():
-    buildInsightsQuiz()
+    # buildInsightsQuiz()
     print("done for Insights Quiz. ")
-    # buildForumQuiz()
+    buildForumQuiz()
     # print("done for Forum Quiz. \n ")
     # print("Making single bulid file for Insights and ForumIAS")
 
