@@ -96,7 +96,8 @@ def build():
 
     import os
     os.system("cat build/html/pre.html > build/html/index.html")
-    os.system("cat build/html/*page.html >> build/html/index.html")
+    # os.system("cat build/html/*page.html >> build/html/index.html")
+    os.system("cat build/html/insightspage.html >> build/html/index.html")
 
     os.system("cat build/html/pos.html >> build/html/index.html")
 
